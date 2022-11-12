@@ -16,9 +16,9 @@ public class ChessApp2 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        ViewPiecesSelection thePieceSelectionView = new ViewPiecesSelection();
+       // ViewPiecesSelection thePieceSelectionView = new ViewPiecesSelection();
         
-        ViewChessBoard chessboard = new ViewChessBoard();
+        ViewChess chessboard = new ViewChess();
         
     }
     
