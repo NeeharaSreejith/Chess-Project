@@ -26,11 +26,18 @@ public class Controller implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand(); // Obtain the text displayed on the component.
         switch (command) {
+            case "Sign up":
+                // Login button
+                String signUsername = this.view.usInput.getText(); // Obtain username.
+                String signPassword = this.view.psInput.getText(); // Obtain password.
+                this.model.checkName(signUsername, signPassword); // Pass above variables to model. Go to the checkName() of Model.java for step 6.
+                break;
+                
             case "Log in":
                 // Login button
-                String username = this.view.unInput.getText(); // Obtain username.
-                String password = this.view.pwInput.getText(); // Obtain password.
-                this.model.checkName(username, password); // Pass above variables to model. Go to the checkName() of Model.java for step 6.
+                String logUsername = this.view.unInput.getText(); // Obtain username.
+                String logPssword = this.view.pwInput.getText(); // Obtain password.
+                this.model.checkName(logUsername, logPssword); // Pass above variables to model. Go to the checkName() of Model.java for step 6.
                 break;
                 
             case "Quit":

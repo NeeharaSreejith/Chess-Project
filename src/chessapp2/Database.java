@@ -33,7 +33,7 @@ public class Database {
             Statement statement = conn.createStatement();
             String tableName = "LearnerInfo";
             
-            if (!checkTableExisting(tableName)) {
+            if (!checkTableExisting(tableName)) { //table creation command
                 statement.executeUpdate("CREATE TABLE " + tableName + " (userid VARCHAR(12), password VARCHAR(12), score INT)");
             }
             
@@ -121,4 +121,44 @@ public class Database {
         }
 
     }   
+
+//    Data insertName(String username, String password) {
+//        Data data = new Data(); // Initialize an instance of Data.
+//        try {
+//            Statement statement = conn.createStatement();
+//            ResultSet rs = statement.executeQuery("INSERT INTO UserInfo (userid, password, score) VALUES "
+//                    + "'" + username + "'" + ",'" + username + "'"+",0");
+//            if (rs.next()) {
+//                String pass = rs.getString("password");
+//                System.out.println("***" + pass);
+//                System.out.println("found user");
+//                /**
+//                 * If the username exists in the USERINFO table, and the
+//                 * password is correct, change the value of relating attributes
+//                 * of data. Otherwise, keep loginFlag as false.
+//                 */
+//                if (password.compareTo(pass) == 0) {
+//                    data.currentScore = rs.getInt("score");
+//                    data.loginFlag = true;
+//                } else {
+//                    data.loginFlag = false;
+//                }
+//            } else {
+//                /**
+//                 * If the username does not exist in the USERINFO table, then
+//                 * create a new account by using the inputted username and
+//                 * password.
+//                 */
+//                System.out.println("no such user");
+//                statement.executeUpdate("INSERT INTO UserInfo "
+//                        + "VALUES('" + username + "', '" + password + "', 0)");
+//                data.currentScore = 0;
+//                data.loginFlag = true;
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return data; //Back to checkName() of Model.java.
+//        
+//    }
 }

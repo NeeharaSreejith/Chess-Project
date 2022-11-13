@@ -12,8 +12,6 @@ package chessapp2;
  */
 public class ModelPieces{
     
-   
-    
-   
+      
     
 }

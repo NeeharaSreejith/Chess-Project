@@ -16,14 +16,22 @@ public class Model extends Observable{
     public Data data;
     public int answer = 0;
     public String username; // To store the user name for later use.
-    
+    public String password; 
     public Model() {
         this.db = new Database();
         this.db.dbsetup();
     }
     
+//    public void chName(String username, String password)
+//    {
+//        this.username = username; // Store username
+//        this.password = password;// store password
+//        this.data = this.db.insertName(username, password); 
+//    }
+    
     public void checkName(String username, String password) {
         this.username = username; // Store username
+        //this.password = password;// store password
         this.data = this.db.checkName(username, password); 
         
 //        if (data.loginFlag) {

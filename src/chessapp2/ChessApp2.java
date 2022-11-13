@@ -18,7 +18,9 @@ public class ChessApp2 {
         
        // ViewPiecesSelection thePieceSelectionView = new ViewPiecesSelection();
         
-        View chessboard = new View();
+        View chessBoard = new View();
+        Model model = new Model();
+        Controller controller = new Controller(chessBoard, model);
         
     }
     

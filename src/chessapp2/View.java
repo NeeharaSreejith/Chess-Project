@@ -153,8 +153,8 @@ public class View extends JFrame implements Observer{
           
         //arranging panels in the frame
         this.setLayout(null);
-//        this.registrationPanel.setBounds(0, 0, frameWidth/2, frameHeight);
-//        this.add(this.registrationPanel);
+        this.registrationPanel.setBounds(0, 0, frameWidth/2, frameHeight);
+        this.add(this.registrationPanel);
         this.loginPanel.setBounds(frameWidth/2, 0, frameWidth/2, frameHeight);
         this.add(this.loginPanel);
         
@@ -223,8 +223,11 @@ public class View extends JFrame implements Observer{
     }
 
     public void addActionListener(ActionListener listener) {
+        
+        this.signUpButton.addActionListener(listener);
         this.loginButton.addActionListener(listener);
-        this.nextButton.addActionListener(listener);  
+        this.nextButton.addActionListener(listener);
+        
     }
     
 
