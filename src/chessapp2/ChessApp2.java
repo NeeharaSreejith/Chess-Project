@@ -18,7 +18,7 @@ public class ChessApp2 {
         
        // ViewPiecesSelection thePieceSelectionView = new ViewPiecesSelection();
         
-        ViewChess chessboard = new ViewChess();
+        View chessboard = new View();
         
     }
     

@@ -8,6 +8,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.util.Observable;
+import java.util.Observer;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -15,10 +19,17 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
  *
  * @author ryoro
  */
-public class ViewBoardPanel {
+public class ViewBoardPanel implements Observer{
     
-    private ViewChess view = new ViewChess();
-    private JPanel boardPanel = new JPanel();
+    private View view = new View();
+     JPanel boardPanel = new JPanel();
+    
+    //quit button to end the game
+    JButton quitButton = new JButton("Quit");
+    
+    //label to display score
+    JLabel scoreLabel = new JLabel("Score :");
+    JLabel score = new JLabel(" ");
 
     JPanel a1 = new JPanel(); JPanel b1 = new JPanel(); JPanel c1 = new JPanel(); JPanel d1 = new JPanel(); JPanel e1 = new JPanel(); JPanel f1 = new JPanel(); JPanel g1 = new JPanel(); JPanel h1 = new JPanel(); 
     JPanel a2 = new JPanel(); JPanel b2 = new JPanel(); JPanel c2 = new JPanel(); JPanel d2 = new JPanel(); JPanel e2 = new JPanel(); JPanel f2 = new JPanel(); JPanel g2 = new JPanel(); JPanel h2 = new JPanel(); 
@@ -65,6 +76,15 @@ public class ViewBoardPanel {
             }
         }
         
+        quitButton.setBounds(900,800,80,100);
+        boardPanel.add(quitButton);
+        
+        scoreLabel.setBounds(300,800,100,100);
+        boardPanel.add(scoreLabel);
+        
+        score.setBounds(600,800,100,100);
+        boardPanel.add(score);
+        
         boardPanel.setLocation(450,50);
         view.add(boardPanel);
       
@@ -73,6 +93,24 @@ public class ViewBoardPanel {
         view.add(boardPanel);
         view.revalidate();
         view.repaint();
+    }
+    
+        private void quitGame(int score) {
+        JPanel quitPanel = new JPanel();
+        JLabel scoreLabel = new JLabel("Your score: " + score);
+        quitPanel.add(scoreLabel);
+        view.getContentPane().removeAll();
+        view.add(quitPanel);
+        view.revalidate();
+        view.repaint();
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        Data data = (Data) arg; // Obtain the instance of data.
+        if(data.quitFlag){
+            this.quitGame(data.currentScore);
+        }
     }
     
 }

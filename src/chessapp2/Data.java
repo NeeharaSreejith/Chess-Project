@@ -9,8 +9,9 @@ package chessapp2;
  * @author ryoro
  */
 public class Data {
-    boolean RegisterFlag = false; // Check if the user successfully registeered into the system.
+    
     boolean loginFlag = false; // Check if the user successfully login the system.
     boolean quitFlag = false; // Check if the user quit the system.
+    boolean nextFlag = false; // Check if the user quit the system.
     int currentScore = 0; // Store user's cumulative scores.
 }
